@@ -1,0 +1,76 @@
+<!--Written in part by Will. Celestin
+    with parts taken and modified from the Graph API Docs-->
+
+<!DOCTYPE html>
+<html>
+
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title>GCM Project</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <script src="javascript/find_mutual_friends.js"></script>
+    </head>
+
+    <body>
+
+        <!-- Script taken directly from
+             https://developers.facebook.com/docs/javascript/quickstart/v2.5
+             Initializes session with Graph API v2.5-->
+        <script>
+            window.fbAsyncInit = function() {
+                FB.init({
+                    appId      : '229967407337633',
+                    xfbml      : true,
+                    version    : 'v2.5'
+                });
+            };
+
+            (function(d, s, id){
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {return;}
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+
+        <div class="header">
+
+            <h1>Friends With A Mutual Friend</h1>
+
+            <p>
+                This simple web application finds all
+                of your Facebook friends (using this app)
+
+                <br/> who share at least one other friend
+                with you (also using this app)
+            </p>
+
+        </div>
+
+        <div class="content" >
+
+            <!-- Div modified from
+                 https://developers.facebook.com/docs/facebook-login/web/login-button
+                 Initializes facebook login/logout button with user's profile picture-->
+            <div data-max-rows="1"
+                 data-size="xlarge"
+                 data-show-faces="true"
+                 class="fb-login-button"
+                 data-auto-logout-link="true"
+                 onlogin="find_mutual_friends()">
+            </div>
+
+            <ul id="mutual_friends_list">
+                <!-- Empty unordered list to be filled by script-->
+            </ul>
+
+        </div>
+
+        <div class="footer" >
+            <p> &copy; Will. Celestin 2016 </p>
+        </div>
+
+    </body>
+
+</html>
