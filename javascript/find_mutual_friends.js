@@ -44,7 +44,7 @@ function find_mutual_friends() {
                                          function (mutual_response) {
                                              if (mutual_response && !mutual_response.error) {
 
-                                                 // displays friends of user with a mutual friend
+                                                 // display friends of user with a mutual friend
                                                  for (var j = 0; j < mutual_response.data.length; j++){
 
                                                      var id = mutual_response.data[j].id.toString();
